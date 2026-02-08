@@ -6,6 +6,8 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "fastapi[standard]>=0.128.4",
+    "psycopg[binary,pool]>=3.3.2",
+    "sqlalchemy[asyncio]>=2.0.46",
 ]
 
 [dependency-groups]
@@ -14,7 +16,7 @@ dev = [
 ]
 
 [tool.ruff]
-line-length = 100
+line-length = 160
 target-version = "py312"
 
 [tool.ruff.lint]

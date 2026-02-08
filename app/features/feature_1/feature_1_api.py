@@ -2,11 +2,7 @@ from __future__ import annotations
 
 from fastapi import APIRouter, Depends, HTTPException, status
 
-from .feature_1_schemas import (
-    CreateFeature1Request,
-    Feature1ListResponse,
-    Feature1Response,
-)
+from .feature_1_schemas import CreateFeature1Request, Feature1ListResponse, Feature1Response
 from .feature_1_service import Feature1NotFoundError, Feature1Service
 
 router = APIRouter(prefix="/feature-1", tags=["feature-1"])
