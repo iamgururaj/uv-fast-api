@@ -2,6 +2,7 @@ Create a production-style feature module for a Python project using FastAPI.
 
 Requirements:
 - Dir: app/features
+- use latest info on apis, lib
 - Feature name: feature_1
 - No database.
 - Include API layer, service layer, and schemas.
