@@ -6,7 +6,7 @@ Requirements:
 
 * Directory: `app/features`
 * Use latest stable ecosystem api (FastAPI, Pydantic, SQLAlchemy).
-* Feature name: `feature_2`.
+* Feature name: `simple_pg_db`.
 * Include API layer, service layer, schemas, and database access.
 * Use ORM for one version.
 * Provide another version that uses plain SQL queries.
@@ -24,14 +24,14 @@ Structure expected:
 
 ```
 app/features/<feature_name>/
-    feature_1_api.py
-    feature_1_service.py
-    feature_1_schemas.py
-    feature_1_models.py
+    <feature_name>_api.py
+    <feature_name>_service.py
+    <feature_name>_schemas.py
+    <feature_name>_models.py
     __init__.py
 ```
 
-Also show:
+Also:
 
 * database/session setup
 * how router is registered in main app
