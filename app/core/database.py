@@ -13,10 +13,22 @@ class Base(DeclarativeBase):
     pass
 
 
-engine = create_engine(DATABASE_URL, pool_pre_ping=True)
-SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
+# Engine owns the connection pool
+engine = create_engine(
+    DATABASE_URL,
+    pool_pre_ping=True,
+)
 
 
+# Session factory
+SessionLocal = sessionmaker(
+    bind=engine,
+    autoflush=False,
+    autocommit=False,
+)
+
+
+# ORM session dependency (per request)
 def get_db() -> Generator[Session, None, None]:
     db = SessionLocal()
     try:
@@ -25,14 +37,7 @@ def get_db() -> Generator[Session, None, None]:
         db.close()
 
 
+# Raw SQL connection dependency (per usage)
 def get_connection() -> Iterator[Connection]:
     with engine.begin() as connection:
         yield connection
-
-
-def init_db() -> None:
-    from app.features.simple_pg_db.simple_pg_db_models import SimplePgDbItem
-
-    Base.metadata.create_all(bind=engine)
-
-    _ = SimplePgDbItem

@@ -43,9 +43,7 @@ class SimplePgDbOrmService:
 
 
 class SimplePgDbSqlService:
-    def create_item(
-        self, connection: Connection, payload: CreateSimplePgDbItemRequest
-    ) -> Dict[str, Any]:
+    def create_item(self, connection: Connection, payload: CreateSimplePgDbItemRequest) -> Dict[str, Any]:
         try:
             result = connection.execute(
                 text(
