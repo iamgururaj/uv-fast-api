@@ -25,6 +25,9 @@ Set the database URL in .env:
 
 DATABASE_URL=postgresql+psycopg://postgres:postgres@localhost:5432/uv_fast_api
 
+## Docs
+http://localhost:8000/docs
+
 ## Feature 1 examples
 
 ### Create item
