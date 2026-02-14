@@ -1,31 +1,32 @@
+## Quick start
+
+```bash
 uv init --app uv-fast-api && uv-fast-api
-
-### FASTAPI
 uv add "fastapi[standard]"
-
-### RUFF
 uv add --dev ruff
+```
 
-uv run ruff check .
-uv run ruff check . --fix
-uv run ruff format .
+## Common commands
 
-### Direct script
-uv run python main.py
-
-### DEV
-uv run fastapi dev
-
-### PROD
-uv run fastapi run
+| Task | Command |
+| --- | --- |
+| Run script | `uv run python main.py` |
+| Dev server | `uv run fastapi dev` |
+| Prod server | `uv run fastapi run` |
+| Lint | `uv run ruff check .` |
+| Lint (fix) | `uv run ruff check . --fix` |
+| Format | `uv run ruff format .` |
 
 ## PostgreSQL setup
 
-Set the database URL in .env:
+Set the database URL in `.env`:
 
+```env
 DATABASE_URL=postgresql+psycopg://postgres:postgres@localhost:5432/uv_fast_api
+```
 
-## Docs
+## API docs
+
 http://localhost:8000/docs
 
 ## Feature 1 examples
@@ -37,18 +38,22 @@ Request:
 POST http://localhost:8000/feature-1/
 
 Body:
+```json
 {
-	"name": "Sample item",
-	"description": "Example payload"
+  "name": "Sample item",
+  "description": "Example payload"
 }
+```
 
 Response (201):
+```json
 {
-	"id": 1,
-	"name": "Sample item",
-	"description": "Example payload",
-	"created_at": "2026-02-08T12:34:56.789012+00:00"
+  "id": 1,
+  "name": "Sample item",
+  "description": "Example payload",
+  "created_at": "2026-02-08T12:34:56.789012+00:00"
 }
+```
 
 ## Simple PG DB examples
 
@@ -59,13 +64,17 @@ Request:
 POST http://localhost:8000/simple-pg-db/orm
 
 Body:
+```json
 {
-	"name": "Sample item"
+  "name": "Sample item"
 }
+```
 
 Response (201):
+```json
 {
-	"id": 1,
-	"name": "Sample item",
-	"created_at": "2026-02-08T12:34:56.789012+00:00"
+  "id": 1,
+  "name": "Sample item",
+  "created_at": "2026-02-08T12:34:56.789012+00:00"
 }
+```
